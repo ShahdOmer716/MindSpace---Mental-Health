@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindSpace | Wellness Challenges</title>
+
+  <style>
+    
+    body{
+      margin:0;padding:0;
+      font-family:'Poppins',sans-serif;
+      background:#FFF8F0;color:#333;
+    }
+    header{background:#3c4193;color:#fff;text-align:center;padding:10px 0;}
+    nav   {background:#73abf0;padding:12px 0;text-align:center;}
+    nav a {color:#fff;text-decoration:none;margin:0 18px;font-size:1rem;
+           padding:8px 15px;transition:background .3s;}
+    nav a:hover{background:#0c1680;border-radius:8px;}
+
+   .hero{
+  background-image:
+      linear-gradient(rgba(255,248,240,.7), rgba(255,248,240,.7)),
+      url('assests/OIP\ \(1\).jpg'); 
+  background-position: center;
+  height: 300px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+    .hero h1{font-size:2.5rem;color:#2A9D8F}
+
+    .section{padding:40px 20px;text-align:center;}
+    .section h2{color:#3b97be;font-size:2rem}
+
+    .cards{display:flex;justify-content:center;flex-wrap:wrap;gap:20px;margin-top:30px}
+    .card{
+      background:#fff;padding:20px;border-radius:16px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1);width:230px;cursor:pointer;
+      transition:transform .25s;
+    }
+    .card:hover{transform:translateY(-4px)}
+    .card h3{margin:0 0 8px;color:#2A9D8F;font-size:1.1rem}
+    .card p{margin:0;font-size:.9rem;color:#555}
+
+    .completed{opacity:.5;text-decoration:line-through;}
+
+    footer{background:#2568ac;color:#fff;text-align:center;padding:20px 0}
+    footer a{color:#fff;text-decoration:underline}
+    footer p{margin:5px 0}
+  </style>
+</head>
+<body>
+
+  <header><h1>Wellness Hub</h1></header>
+
+  <nav>
+    <a href="Homepage.html">Home</a>
+    <a href="communityspace.html">Community Space</a>
+    <a href="Resources.html">Resources</a>
+    <a href="helpline.html">Helpline</a>
+    <a href="log in.html">Log In</a>
+    <a href="WellnessHub.html">Wellness Hub</a>
+  </nav>
+
+  <div class="hero">
+    <h1>Weekly Wellness Challenges</h1>
+  </div>
+
+  <div class="section">
+    <h2>Complete goals • Track Progress• feel better</h2>
+    <div id="challenge-grid" class="cards"></div>
+    <p id="progress" style="margin-top:28px;font-weight:600;"></p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 MindSpace | All Rights Reserved</p>
+    <p>Email: <a href="mailto:contact@mindspace.org">contact@mindspace.org</a></p>
+    <p>Phone: <a href="tel:+60123456789">+60 12‑345 6789</a></p>
+    <p>Address: 1, Jln Taylors, 47500 Subang Jaya, Selangor</p>
+  </footer>
+
+  <!-- ---------- Wellness JS ---------- -->
+  <script>
+    const challenges = [
+      {id:1, text:"Drink 8 glasses of water today 💧"},
+      {id:2, text:"Take a 10‑minute walk 🚶‍♀️"},
+      {id:3, text:"Write down 3 things you’re grateful for ✍️"},
+      {id:4, text:"Practice 5‑minute deep breathing 🧘"},
+      {id:5, text:"Compliment yourself in the mirror 😊"},
+      {id:6, text:"Sleep 7+ hours tonight 🛏️"}
+    ];
+
+    /* === identify user (same key your login saves) === */
+    const user = localStorage.getItem("username") || "guest";
+    const KEY  = `wellness_${user}`;
+    let done   = JSON.parse(localStorage.getItem(KEY) || "[]");
+
+    const grid = document.getElementById("challenge-grid");
+    const prog = document.getElementById("progress");
+    render();
+
+    function render(){
+      grid.innerHTML = "";
+      challenges.forEach(c=>{
+        const card = document.createElement("div");
+        card.className = "card" + (done.includes(c.id)? " completed" : "");
+        card.innerHTML = `<h3>${c.text}</h3><p>${done.includes(c.id)? "Completed! Click to undo." :
+                         "Click to complete."}</p>`;
+        card.onclick = () => toggle(c.id);
+        grid.appendChild(card);
+      });
+      prog.textContent = `Progress: ${done.length}/${challenges.length} completed`;
+    }
+
+    function toggle(id){
+      /* login gate */
+      if (!localStorage.getItem("username")){
+        alert("Please log in to join challenges.");
+        window.location.href = "log in.html";
+        return;
+      }
+
+      if (done.includes(id)){
+        done = done.filter(x=>x!==id);
+      } else{
+        done.push(id);
+      }
+      localStorage.setItem(KEY, JSON.stringify(done));
+      render();
+    }
+  </script>
+</body>
+</html>

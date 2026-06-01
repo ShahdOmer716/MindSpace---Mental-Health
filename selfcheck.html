@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindSpace | Self-Check</title>
+
+
+
+  <style>
+    /* ---------- colour palette (matches homepage) ---------- */
+    :root{
+      --blue-dark:#3c4193;   /* header / hover */
+      --blue-mid :#73abf0;   /* primary accent */
+      --mint     :#2A9D8F;   /* secondary accent */
+      --peach-bg :#FFF8F0;   /* body background */
+    }
+
+    /* ---------- reset & globals ---------- */
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:var(--peach-bg);
+      color:#333;
+      line-height:1.55;
+    }
+
+    /* ---------- header & nav (re-use homepage look) ---------- */
+    header.site-header{
+      background:var(--blue-dark);
+      color:#fff;
+      text-align:center;
+      padding:30px 0;
+    }
+
+    nav{
+      background:var(--blue-mid);
+      text-align:center;
+      padding:12px 0;
+    }
+    nav a{
+      color:#fff;text-decoration:none;
+      margin:0 18px;padding:8px 15px;font-size:1rem;
+      transition:background .25s;border-radius:8px;
+    }
+    nav a:hover{background:var(--blue-dark)}
+
+    /* ---------- banner for this page ---------- */
+    .banner{
+      background:var(--blue-dark);
+      color:#fff;
+      text-align:center;
+      padding:36px 16px;
+    }
+    .tagline{font-weight:300;margin-top:6px;font-size:.95rem}
+
+    /* ---------- card wrapper ---------- */
+    .card{
+      background:#fff;border-radius:16px;
+      box-shadow:0 6px 14px rgba(0,0,0,.08);
+    }
+
+    /* ---------- quiz form ---------- */
+    .quiz{
+      max-width:860px;margin:48px auto;padding:32px 28px;
+    }
+    .quiz ol{list-style:none}
+    .quiz li{margin-bottom:26px}
+    .quiz span{font-weight:600;display:block;margin-bottom:8px}
+    .options label{
+      display:inline-block;margin:4px 18px 8px 0;cursor:pointer;
+    }
+    .options input{margin-right:6px}
+
+    /* ---------- primary button ---------- */
+    .cta{
+      background:var(--blue-mid);color:#fff;border:none;
+      padding:14px 30px;font-size:1rem;border-radius:8px;
+      cursor:pointer;transition:background .25s;
+    }
+    .cta:hover{background:var(--blue-dark)}
+
+    /* ---------- result card ---------- */
+    .result{
+      max-width:760px;margin:24px auto 60px;
+      padding:28px 26px;text-align:center;
+    }
+    .result h2{color:var(--blue-dark);margin-bottom:12px}
+    .disclaimer{font-size:.875rem;margin-top:22px;color:#555}
+
+    /* ---------- utility ---------- */
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+
+  <!-- site header + nav (same as homepage) -->
+  <header class="site-header">
+    <h1>MindSpace: Mental Health Support</h1>
+  </header>
+
+  <nav>
+    <a href="Homepage.html">Home</a>
+    <a href="communityspace.html">Community</a>
+    <a href="Resources.html">Resources</a>
+    <a href="Wellness Hub.html">Wellness Hub</a>
+    <a href="helpline.html">Helpline</a>
+    <a href="log in.html">Log In</a>
+  </nav>
+
+  <!-- page-specific banner -->
+  <section class="banner">
+    <h2>Quick Self-Check</h2>
+    <p class="tagline">6 questions • 2 minutes • private &amp; anonymous</p>
+  </section>
+
+  <!-- QUIZ -->
+  <form id="quiz" class="quiz card">
+    <ol>
+      <!-- question pattern repeated for q1–q6 -->
+      <li>
+        <span>Over the past 2 weeks, how often have you felt down, depressed, or hopeless?</span>
+        <div class="options">
+          <label><input type="radio" name="q1" value="0" required>Not at all</label>
+          <label><input type="radio" name="q1" value="1">Several days</label>
+          <label><input type="radio" name="q1" value="2">More than half</label>
+          <label><input type="radio" name="q1" value="3">Nearly every day</label>
+        </div>
+      </li>
+
+      <li>
+        <span>Felt little interest or pleasure in doing things?</span>
+        <div class="options">
+          <label><input type="radio" name="q2" value="0" required>Not at all</label>
+          <label><input type="radio" name="q2" value="1">Several days</label>
+          <label><input type="radio" name="q2" value="2">More than half</label>
+          <label><input type="radio" name="q2" value="3">Nearly every day</label>
+        </div>
+      </li>
+
+      <li>
+        <span>Felt nervous, anxious, or on edge?</span>
+        <div class="options">
+          <label><input type="radio" name="q3" value="0" required>Not at all</label>
+          <label><input type="radio" name="q3" value="1">Several days</label>
+          <label><input type="radio" name="q3" value="2">More than half</label>
+          <label><input type="radio" name="q3" value="3">Nearly every day</label>
+        </div>
+      </li>
+
+      <li>
+        <span>Not been able to stop or control worrying?</span>
+        <div class="options">
+          <label><input type="radio" name="q4" value="0" required>Not at all</label>
+          <label><input type="radio" name="q4" value="1">Several days</label>
+          <label><input type="radio" name="q4" value="2">More than half</label>
+          <label><input type="radio" name="q4" value="3">Nearly every day</label>
+        </div>
+      </li>
+
+      <li>
+        <span>Had trouble sleeping (falling/staying asleep, or oversleeping)?</span>
+        <div class="options">
+          <label><input type="radio" name="q5" value="0" required>Not at all</label>
+          <label><input type="radio" name="q5" value="1">Several days</label>
+          <label><input type="radio" name="q5" value="2">More than half</label>
+          <label><input type="radio" name="q5" value="3">Nearly every day</label>
+        </div>
+      </li>
+
+      <li>
+        <span>Found it hard to relax?</span>
+        <div class="options">
+          <label><input type="radio" name="q6" value="0" required>Not at all</label>
+          <label><input type="radio" name="q6" value="1">Several days</label>
+          <label><input type="radio" name="q6" value="2">More than half</label>
+          <label><input type="radio" name="q6" value="3">Nearly every day</label>
+        </div>
+      </li>
+    </ol>
+
+    <button type="submit" class="cta">Show my result</button>
+  </form>
+
+  <!-- RESULT -->
+  <section id="result" class="result card hidden">
+    <h2>Your Score: <span id="score"></span></h2>
+    <p id="feedback"></p>
+    <p class="disclaimer">
+      This screen is <strong>not a diagnosis</strong>. If you feel unsafe or think of self-harm,
+      please call your local crisis line or visit our <a href="helpline.html">Helpline page</a>.
+    </p>
+  </section>
+
+  <!-- JavaScript (embedded) -->
+  <script>
+    const form  = document.getElementById('quiz');
+    const box   = document.getElementById('result');
+    const score = document.getElementById('score');
+    const text  = document.getElementById('feedback');
+
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+
+      let total = 0;
+      for (let i = 1; i <= 6; i++) {
+        total += Number(form['q'+i].value);
+      }
+
+      /* map score ➜ band & feedback */
+      let band, msg;
+      if (total <= 6){ band='Minimal';   msg='Your responses suggest minimal symptoms. Keep practising self-care.'; }
+      else if (total <= 12){ band='Mild'; msg='Mild symptoms noted. Mindfulness & social connection often help.'; }
+      else if (total <= 18){ band='Moderate'; msg='Moderate level detected. Consider speaking to a counsellor.'; }
+      else { band='Severe'; msg='High symptom level. We recommend professional support as soon as possible.'; }
+
+      score.textContent = `${total} / 18  (${band})`;
+      text.textContent  = msg;
+      box.classList.remove('hidden');
+
+      /* ------- OPTIONAL: send to PHP for DB save --------
+      fetch('self-check.php', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({score:total, band})
+      });
+      ---------------------------------------------------*/
+    });
+  </script>
+</body>
+</html>

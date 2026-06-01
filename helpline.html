@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help Line - Mental Health Support</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: whitesmoke;
+        color: black;
+      }
+
+      header{
+        background-color: rgb(40, 22, 114);
+        text-align: center;
+        text-decoration-color: aliceblue;
+        color:aliceblue;
+        font-size: 35px; 
+        font-weight: bold; 
+        font-family:  Arial, sans-serif;
+        padding: 20px ;
+        max-width: 100%;
+        margin-bottom: 0%;
+        
+    }
+    header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+    nav {
+      background-color: #2787a1;
+      padding: 10px 0;
+      text-align: center;
+      font-family: Arial, sans-serif; 
+      font-size: 16px; 
+      font-weight: normal; 
+      margin: 0;
+      width: 100%;
+  }
+  
+  
+  nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px; 
+      font-size: inherit; 
+      font-weight: inherit; 
+      padding: 5px 10px; 
+  }
+  
+ 
+  nav a:hover {
+      background-color: #004d40;
+      border-radius: 5px;
+  }
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      main {
+        text-align: center;
+        padding: 20px;
+      }
+      h2 {
+        margin-bottom: 5px;
+      }
+      .helpline-card {
+        background-color: whitesmoke;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 350px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+      .helpline-card h3 {
+        margin: 0 0 10px;
+      }
+      .helpline-card p {
+        font-size: 0.9rem;
+      }
+      .helpline-card ul {
+        list-style: none;
+        padding: 0;
+      }
+      .helpline-card ul li {
+        margin: 5px 0;
+      }
+      .Learn-more-button {
+        margin-top: 15px;
+        display: inline-block;
+        background-color: white;
+        color: black;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      footer {
+    background-color: #00796b;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin:0;
+    font-family: sans-serif;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Help Line</h1>
+    </header>
+    <nav>
+      <a href="Homepage.html">Home</a>
+      <a href="communityspace.html">Community Space</a>
+      <a href="Resources.html">Resources</a>
+      <a href="Wellness Hub.html">Wellness Hub</a>
+      <a href="helpline.html">Helpline</a>
+      <a href="log in.html">Log In</a>
+    
+    </nav>
+    <main>
+      <h2>Helpline in Malaysia</h2>
+
+      <div class="helpline-card">
+        <h3>Befrienders Kuala Lumpur</h3>
+        <p>
+          Befrienders KL offers free and confidential emotional support to
+          anyone feeling distressed, depressed, or suicidal.
+        </p>
+        <ul>
+          <li>📅 Open 24/7</li>
+          <li>👥 Volunteers</li>
+          <li>📞 0376272929</li>
+          <li>🌐 befrienders.org.my</li>
+        </ul>
+        <button class="Learn-more-button" id="button1">Learn more</button>
+      </div>
+
+      <div class="helpline-card">
+        <h3>Life Line Association Malaysia</h3>
+        <p>
+          A non-profit organization that focuses on emotional support and
+          counseling to help alleviate psychological stress for those in need.
+        </p>
+        <ul>
+          <li>
+            📅 Monday - Friday, 9:00 AM - 5:00 PM Saturday, 2:30 AM - 5:30 PM,
+            10:30 PM - 1:30 AM
+          </li>
+          <li>👥 Volunteers</li>
+          <li>📞 0342657995</li>
+          <li>🌐 https://www.lifeline.org.my</li>
+        </ul>
+        <button class="Learn-more-button" id="button2">Learn more</button>
+      </div>
+
+      <div class="helpline-card">
+        <h3>Malaysian Mental Health Association</h3>
+        <p>
+          A non-governmental organization that aims to raise awareness of mental
+          health and provide psychological support.
+        </p>
+        <ul>
+          <li>📅 Monday - Friday, 9:00 AM - 6:00 PM</li>
+          <li>👥 Volunteers</li>
+          <li>📞 0327806803</li>
+          <li>🌐 https://mmha.org.my</li>
+        </ul>
+        <button class="Learn-more-button" id="button3">Learn more</button>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Mental Health Support | All Rights Reserved</p>
+            <p>Email: <a href="mailto:contact@mentalhealthsupport.com">contact@mentalhealthsupport.com</a></p>
+            <p>Phone: <a href="tel:+1234567890">+1-234-567-890</a></p>
+            <p>Address:1, Jln Taylors, 47500 Subang Jaya, Selangor</p>
+    </footer>
+
+    <script>
+      document.getElementById("button1").onclick = function () {
+        window.open("https://www.befrienders.org.my", "_blank");
+      };
+
+      document.getElementById("button2").onclick = function () {
+        window.open("https://www.lifeline.org.my", "_blank");
+      };
+
+      document.getElementById("button3").onclick = function () {
+        window.open("https://mmha.org.my", "_blank");
+      };
+    </script>
+  </body>
+</html>

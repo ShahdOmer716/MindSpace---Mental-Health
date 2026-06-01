@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - MindSpace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #FFF8F0;
+      color: #333;
+    }
+
+    header {
+      background-color: #3c4193;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    nav {
+      background-color: #73abf0;
+      padding: 12px 0;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 18px;
+      font-size: 1rem;
+      padding: 8px 15px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #0c1680;
+      border-radius: 8px;
+    }
+
+    .section {
+      padding: 60px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 70vh;
+    }
+
+    .card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: left;
+    }
+
+    .card h2 {
+      color: #2A9D8F;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #2A9D8F;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #20756a;
+    }
+
+    .switch {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.95rem;
+    }
+
+    .switch a {
+      color: #2A9D8F;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #2568ac;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    #signup-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-box {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      width: 340px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-box h2 {
+      text-align: center;
+      color: #2A9D8F;
+    }
+
+    .modal-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .modal-box button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    #create-account {
+      background-color: #2A9D8F;
+      color: white;
+      font-weight: bold;
+    }
+
+    #create-account:hover {
+      background-color: #1d766a;
+    }
+
+    #close-signup {
+      background-color: #ccc;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>MindSpace: Mental Health Support</h1>
+  </header>
+
+  <nav>
+    <a href="Homepage.html">Home</a>
+    <a href="communityspace.html">Community Space</a>
+    <a href="Resources.html">Resources</a>
+    <a href="WellnessHub.html">Wellness Hub</a>
+    <a href="helpline.html">Helpline</a>
+    <a href="login.html">Log In</a>
+  </nav>
+
+  <section class="section">
+    <div class="card">
+      <h2>Log In</h2>
+      <form id="login-form">
+        <label for="username">Username</label>
+        <input type="text" id="username" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" required>
+        <button type="submit">Log In</button>
+      </form>
+      <div class="switch">
+        Don’t have an account yet? <a id="open-signup">Sign up</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="signup-modal">
+    <div class="modal-box">
+      <h2>Create Account</h2>
+      <label for="newUser">Username</label>
+      <input type="text" id="newUser">
+      <label for="newPass">Password</label>
+      <input type="password" id="newPass">
+      <button id="create-account">Sign Up</button>
+      <button id="close-signup">Cancel</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 MindSpace | All Rights Reserved</p>
+    <p>Email: <a href="mailto:contact@mindspace.org">contact@mindspace.org</a></p>
+    <p>Phone: <a href="tel:+60123456789">+60 12-345 6789</a></p>
+    <p>Address: 1, Jln Taylors, 47500 Subang Jaya, Selangor</p>
+  </footer>
+
+  <script>
+    function getUsers(){ return JSON.parse(localStorage.getItem('users') || '{}'); }
+    function saveUsers(obj){ localStorage.setItem('users', JSON.stringify(obj)); }
+
+    const signupModal = document.getElementById('signup-modal');
+    document.getElementById('open-signup').onclick = () => signupModal.style.display = 'flex';
+    document.getElementById('close-signup').onclick = () => signupModal.style.display = 'none';
+    window.onclick = e => { if(e.target === signupModal) signupModal.style.display = 'none'; }
+
+    document.getElementById('create-account').onclick = () => {
+      const user = document.getElementById('newUser').value.trim();
+      const pass = document.getElementById('newPass').value.trim();
+      if (!user || !pass) { alert('Please fill both fields.'); return; }
+
+      const users = getUsers();
+      if (users[user]) { alert('Username already exists.'); return; }
+
+      users[user] = pass;
+      saveUsers(users);
+      alert('Account created! You can now log in.');
+      signupModal.style.display = 'none';
+    };
+
+    document.getElementById('login-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const users = getUsers();
+
+      if (!users[user]) {
+        alert('Account not found. Please sign up.');
+        signupModal.style.display = 'flex';
+        return;
+      }
+
+      if (users[user] !== pass) {
+        alert('Incorrect password.');
+        return;
+      }
+
+      localStorage.setItem('username', user);
+      localStorage.setItem('loggedIn', 'true');
+      window.location.href = 'communityspace.html';
+    });
+  </script>
+
+</body>
+</html>
